@@ -3,6 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+**/.idea/
+
 # User-specific files
 *.rsuser
 *.suo
@@ -396,3 +398,15 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+src/.idea/.idea.Deposito/.idea/.name
+src/.idea/.idea.Deposito/.idea/encodings.xml
+src/.idea/.idea.Deposito/.idea/indexLayout.xml
+src/.idea/.idea.Deposito/.idea/vcs.xml
+src/.idea/.idea.Deposito/.idea/.name
+src/.idea/.idea.Deposito/.idea/encodings.xml
+src/.idea/.idea.Deposito/.idea/indexLayout.xml
+src/.idea/.idea.Deposito/.idea/vcs.xml
+src/.idea/.idea.Deposito/.idea/vcs.xml
+src/.idea/.idea.Deposito/.idea/indexLayout.xml
+src/.idea/.idea.Deposito/.idea/encodings.xml
+src/.idea/.idea.Deposito/.idea/.name

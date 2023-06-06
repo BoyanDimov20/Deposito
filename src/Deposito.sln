@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deposito.DB", "Database\Deposito.DB\Deposito.DB.csproj", "{43AC5326-FD21-404B-B026-62B40B75FF34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deposito.Web", "WebApp\server\Deposito.Web\Deposito.Web.csproj", "{C32F8703-3323-4C2B-8416-3B6F0DC24E22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43AC5326-FD21-404B-B026-62B40B75FF34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43AC5326-FD21-404B-B026-62B40B75FF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43AC5326-FD21-404B-B026-62B40B75FF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43AC5326-FD21-404B-B026-62B40B75FF34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32F8703-3323-4C2B-8416-3B6F0DC24E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32F8703-3323-4C2B-8416-3B6F0DC24E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32F8703-3323-4C2B-8416-3B6F0DC24E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32F8703-3323-4C2B-8416-3B6F0DC24E22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
