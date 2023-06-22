@@ -43,7 +43,7 @@ export default function Deposit() {
                 </Timeline.Item>
 
                 <Timeline.Item title="Изплащане">
-                    <Text color="dimmed" size="sm">Общата сума в края на период: <Text fw={700} variant="gradient" component="span" inherit>${deposit.amountAfterDeposit} ${deposit.currency}</Text></Text>
+                    <Text color="dimmed" size="sm">Общата сума в края на период: <Text fw={700} variant="gradient" component="span" inherit>{deposit.amountAfterDeposit} {deposit.currency}</Text></Text>
                 </Timeline.Item>
             </Timeline>
         </div>

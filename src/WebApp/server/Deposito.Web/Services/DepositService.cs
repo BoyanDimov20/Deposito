@@ -23,7 +23,7 @@ public class DepositService : IDepositService
                         && x.Deposit.MinimalAmount <= amount
                         && x.Deposit.MaximumAmount >= amount
                         && x.Deposit.Currency == currency
-                        && x.Deposit.Type == payoutType)
+                        && (x.Deposit.Type == payoutType || payoutType == PayoutType.Undefined))
             .Select(x => new DepositDto
             {
                 Id = x.Id,
