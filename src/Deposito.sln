@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deposito.DB", "Database\Dep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deposito.Web", "WebApp\server\Deposito.Web\Deposito.Web.csproj", "{C32F8703-3323-4C2B-8416-3B6F0DC24E22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deposito.Desktop", "DesktopApp\Deposito.Desktop.csproj", "{0DC93898-4499-4204-B9D5-9AAB5970305F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C32F8703-3323-4C2B-8416-3B6F0DC24E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C32F8703-3323-4C2B-8416-3B6F0DC24E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C32F8703-3323-4C2B-8416-3B6F0DC24E22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC93898-4499-4204-B9D5-9AAB5970305F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC93898-4499-4204-B9D5-9AAB5970305F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC93898-4499-4204-B9D5-9AAB5970305F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC93898-4499-4204-B9D5-9AAB5970305F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,42 @@
+﻿<Window x:Class="Deposito.Desktop.InterestDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Deposito.Desktop"
+        mc:Ignorable="d"
+        Title="InterestDialog" Height="450" Width="800">
+    <Grid Width="250">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Content="Добави лихва" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"
+               VerticalAlignment="Top" />
+        
+        <Label Grid.Row="1" Content="За период"></Label>
+        <ComboBox Grid.Row="2" x:Name="period">
+            <ComboBoxItem Content="1 месец" Tag="1"></ComboBoxItem>
+            <ComboBoxItem Content="3 месеца" Tag="3"></ComboBoxItem>
+            <ComboBoxItem Content="6 месеца" Tag="6"></ComboBoxItem>
+            <ComboBoxItem Content="9 месеца" Tag="9"></ComboBoxItem>
+            <ComboBoxItem Content="12 месеца" Tag="12"></ComboBoxItem>
+            <ComboBoxItem Content="18 месеца" Tag="18"></ComboBoxItem>
+            <ComboBoxItem Content="24 месеца" Tag="24"></ComboBoxItem>
+            <ComboBoxItem Content="36 месеца" Tag="36"></ComboBoxItem>
+            <ComboBoxItem Content="48 месеца" Tag="48"></ComboBoxItem>
+            <ComboBoxItem Content="60 месеца" Tag="60"></ComboBoxItem>
+            <ComboBoxItem Content="120 месеца" Tag="120"></ComboBoxItem>
+        </ComboBox>
+        
+        <Label Grid.Row="3" Content="Лихвен процент"></Label>
+        <TextBox x:Name="interestPercent" Grid.Row="4"></TextBox>
+        <Button x:Name="SubmitInterest" Grid.Row="5" Content="Добави" Width="80" HorizontalAlignment="Right" Margin="0 10 0 0"></Button>
+    </Grid>
+</Window>
