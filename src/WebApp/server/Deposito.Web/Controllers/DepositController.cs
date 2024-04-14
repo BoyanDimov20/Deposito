@@ -27,4 +27,12 @@ public class DepositController : ControllerBase
     {
         return await _depositService.CalculateDeposit(id, amount);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GenerateExcel(double amount, double interest, int period, PayoutType payoutType)
+    {
+        var stream = await _depositService.GenerateExcel(amount, interest, period, payoutType);
+        
+        return this.File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+    }
 }

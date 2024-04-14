@@ -1,13 +1,22 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+export enum PayoutType {
+    Undefined = -1,
+    Determined = 0,
+    InAdvance = 1,
+    Monthly = 2,
+    InEnd = 3
+}
+
 type CalculatedDepositProps = {
     id: string,
     percent: number,
     period: number,
     currency: string,
     depositedAmount: string,
-    amountAfterDeposit: string
+    amountAfterDeposit: number,
+    payoutType: PayoutType
 };
 
 

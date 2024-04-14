@@ -9,4 +9,9 @@ public interface IDepositService
         PayoutType payoutType);
 
     Task<CalculatedDepositDto> CalculateDeposit(string interestId, double amount);
+
+    Task<DepositTable> FindMonthlyPaidDeposit(double amount, double interest, int period);
+    Task<DepositTable> FindYearlyPaidDeposit(double amount, double interest, int period);
+
+    Task<Stream> GenerateExcel(double amount, double interest, int period, PayoutType payoutType);
 }

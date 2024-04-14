@@ -14,6 +14,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="ExcelLibrary" Version="1.2011.7.31" />
         <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.19" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.16" />

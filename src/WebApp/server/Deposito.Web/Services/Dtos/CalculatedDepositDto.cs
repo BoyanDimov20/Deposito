@@ -15,4 +15,6 @@ public class CalculatedDepositDto
     public double DepositedAmount { get; set; }
 
     public double AmountAfterDeposit { get; set; }
+
+    public PayoutType PayoutType { get; set; }
 }

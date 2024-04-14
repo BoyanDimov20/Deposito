@@ -5,7 +5,7 @@ namespace Deposito.DB;
 
 public class AppDbContext : DbContext
 {
-    public static string DbConnection = "Data Source=C:\\Users\\Bdimov\\Documents\\GitHub\\Deposito\\src\\Database\\DepositoDB.db;";
+    public static string DbConnection = "Data Source=C:\\DBs\\DepositoDB.db;";
 
     public AppDbContext() {}
     public AppDbContext(DbContextOptions options) : base(options)
