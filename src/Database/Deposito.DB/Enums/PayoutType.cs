@@ -2,9 +2,7 @@
 
 public enum PayoutType
 {
-    Undefined = -1,
-    Determined = 0,
-    InAdvance = 1,
-    Monthly = 2,
+    Monthly = 1,
+    Yearly = 2,
     InEnd = 3
 }

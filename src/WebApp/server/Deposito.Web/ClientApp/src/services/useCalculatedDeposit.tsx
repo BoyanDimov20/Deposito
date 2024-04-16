@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export enum PayoutType {
-    Undefined = -1,
-    Determined = 0,
-    InAdvance = 1,
-    Monthly = 2,
+    Monthly = 1,
+    Yearly= 2,
     InEnd = 3
 }
 

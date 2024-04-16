@@ -4,14 +4,10 @@ import {PayoutType, useCalculatedDeposit} from "../services/useCalculatedDeposit
 
 function translatePayoutType(payoutType: PayoutType) {
     switch (payoutType) {
-        case -1:
-            return 'без значение'
-        case 0:
-            return 'на определената дата';
         case 1:
-            return 'авансово';
-        case 2:
             return 'ежемесечно';
+        case 2:
+            return 'годишно';
         case 3:
             return 'в края на периода';
         default:

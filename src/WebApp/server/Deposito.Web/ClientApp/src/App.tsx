@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Button, Group, Radio, Select, TextInput } from '@mantine/core'
+import { Button, Radio, Select, TextInput } from '@mantine/core'
 import { useNavigate } from 'react-router-dom';
 
 function App() {
@@ -74,10 +74,8 @@ function App() {
 						label="Изплащане на лихви"
 						placeholder="Избери начин за изплащане"
 						data={[
-							{ value: '-1', label: 'Без значение' },
-							{ value: '0', label: 'На падеж' },
-							{ value: '1', label: 'Авансово' },
-							{ value: '2', label: 'Ежемесечно' },
+							{ value: '1', label: 'Ежемесечно' },
+							{ value: '2', label: 'Годишно' },
 							{ value: '3', label: 'На край на период' }
 						]}
 						value={paymentType}

@@ -26,7 +26,7 @@ public class DepositService : IDepositService, IDisposable, IAsyncDisposable
                         && x.Deposit.MinimalAmount <= amount
                         && x.Deposit.MaximumAmount >= amount
                         && x.Deposit.Currency == currency
-                        && (x.Deposit.Type == payoutType || payoutType == PayoutType.Undefined))
+                        && (x.Deposit.Type == payoutType))
             .Select(x => new DepositDto
             {
                 Id = x.Id,
@@ -68,13 +68,17 @@ public class DepositService : IDepositService, IDisposable, IAsyncDisposable
             throw new ArgumentNullException(nameof(interest));
         }
         
-        if (interest.PayoutType == PayoutType.Monthly || interest.PayoutType == PayoutType.Undefined)
+        if (interest.PayoutType == PayoutType.Monthly)
         {
             interest.AmountAfterDeposit = amount + (amount * (interest.Percent / 100));
         }
+        else if(interest.PayoutType == PayoutType.Yearly)
+        {
+            interest.AmountAfterDeposit = amount * Math.Pow(1 + (interest.Percent / 100), ((double)interest.Period/12));
+        }
         else
         {
-            interest.AmountAfterDeposit = amount + (amount * (interest.Percent / 100) * Math.Ceiling((double)(interest.Period / 12)));
+            //TODO: In the end payout
         }
 
         return interest;
@@ -118,29 +122,23 @@ public class DepositService : IDepositService, IDisposable, IAsyncDisposable
         var monthlyDeposits = new List<double>();
         var totalIncome = new List<double>();
 
-       
+        var currentAmount = amount;
         for (int i = 1; i < period + 1; i++)
         {
             if (i % 12 == 0)
             {
                 interests.Add(interest);
-                var monthDeposit = (interest / 100) * amount;
+                var monthDeposit = (interest / 100) * (currentAmount);
                 monthlyDeposits.Add(monthDeposit);
-
-                if (i == period)
-                {
-                    totalIncome.Add(monthlyDeposits.Sum() + amount);
-                }
-                else
-                {
-                    totalIncome.Add(amount);
-                }
+                
+                currentAmount = amount + monthlyDeposits.Sum();
+                totalIncome.Add(currentAmount);
             }
             else
             {
                 interests.Add(0);
                 monthlyDeposits.Add(0);
-                totalIncome.Add(amount);
+                totalIncome.Add(currentAmount);
             }
             
 
@@ -156,7 +154,7 @@ public class DepositService : IDepositService, IDisposable, IAsyncDisposable
         };
     }
 
-    public async Task<DepositTable> FindInAdvancePaidDeposit(double amount, double interest, int period)
+    public async Task<DepositTable> FindInTheEndPaidDeposit(double amount, double interest, int period)
     {
         return await FindYearlyPaidDeposit(amount, interest, period);
     }
@@ -165,15 +163,14 @@ public class DepositService : IDepositService, IDisposable, IAsyncDisposable
     {
         switch (payoutType)
         {
-            case PayoutType.InAdvance:
-                return await FindInAdvancePaidDeposit(amount, interest, period);
-            case PayoutType.InEnd:
+            case PayoutType.Yearly:
                 return await FindYearlyPaidDeposit(amount, interest, period);
-            case PayoutType.Undefined:
-            case PayoutType.Determined:
+            case PayoutType.InEnd:
+                return await FindInTheEndPaidDeposit(amount, interest, period);
             case PayoutType.Monthly:
             default:
                 return await FindMonthlyPaidDeposit(amount, interest, period);
+
         }
     }
     public async Task<Stream> GenerateExcel(double amount, double interest, int period, PayoutType payoutType)
@@ -194,22 +191,22 @@ public class DepositService : IDepositService, IDisposable, IAsyncDisposable
         worksheet.Cells.ColumnWidth[0, 4] = 5000;
         for (int i = 0; i < depositTable.Amounts.Count; i++)
         {
-            worksheet.Cells[i + 1, 1] = new Cell($"{depositTable.Amounts[i]:f2}");
+            worksheet.Cells[i + 1, 1] = new Cell(Math.Round(depositTable.Amounts[i], 2));
         }
 
         for (int i = 0; i < depositTable.Interests.Count; i++)
         {
-            worksheet.Cells[i + 1, 2] = new Cell($"{depositTable.Interests[i]:f2}");
+            worksheet.Cells[i + 1, 2] = new Cell(Math.Round(depositTable.Interests[i], 2));
         }
 
         for (int i = 0; i < depositTable.InterestIncomes.Count; i++)
         {
-            worksheet.Cells[i + 1, 3] = new Cell($"{depositTable.InterestIncomes[i]:f2}");
+            worksheet.Cells[i + 1, 3] = new Cell(Math.Round(depositTable.InterestIncomes[i], 2));
         }
 
         for (int i = 0; i < depositTable.NetIncomes.Count; i++)
         {
-            worksheet.Cells[i + 1, 4] = new Cell($"{depositTable.NetIncomes[i]:f2}");
+            worksheet.Cells[i + 1, 4] = new Cell(Math.Round(depositTable.NetIncomes[i], 2));
         }
         //workbook.SaveToStream(_memoryStream);
         workbook.Save(_memoryStream);

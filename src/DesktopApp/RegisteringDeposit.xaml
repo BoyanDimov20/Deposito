@@ -79,10 +79,8 @@
 
         <Label Grid.Row="11" Content="Вид изплащане" />
         <ComboBox x:Name="payoutTypeTextBox" Grid.Row="12">
-            <ComboBoxItem Content="Без значение" Tag="-1" />
-            <ComboBoxItem Content="На падеж" Tag="0" />
-            <ComboBoxItem Content="Авансово" Tag="1" />
-            <ComboBoxItem Content="Ежемесечно" Tag="2" />
+            <ComboBoxItem Content="Ежемесечно" Tag="1" />
+            <ComboBoxItem Content="Годишно" Tag="2" />
             <ComboBoxItem Content="На края на периода" Tag="3" />
         </ComboBox>
         <Label Grid.Row="13" Content="Списък с лихви" />
